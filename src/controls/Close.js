@@ -1,8 +1,11 @@
 // @flow
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-
-const HIT_SLOP = {top: 15, left: 15, right: 15, bottom: 15};
+import {StyleSheet, TouchableOpacity} from 'react-native';
+import TextIconView, {
+	ICON_CODES,
+	ICON_SIZES,
+} from '../../../../src/views/texts/text-icon.view';
+import { COLOR_CODES } from '../../../../src/enums/colors';
 
 const styles = StyleSheet.create({
     closeButton: {
@@ -13,7 +16,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0,0,0,0.2)',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 25,
+        marginTop: 10,
         marginRight: 15,
     },
     closeButton__text: {
@@ -27,10 +30,11 @@ const styles = StyleSheet.create({
 
 export default ({onPress}: {onPress: () => *}) => (
     <TouchableOpacity
-        hitSlop={HIT_SLOP}
         style={styles.closeButton}
         onPress={onPress}
     >
-        <Text style={styles.closeButton__text}>×</Text>
+       <TextIconView icon={ICON_CODES.Close}
+            size={ICON_SIZES.sm}
+            color={COLOR_CODES.White}/>
     </TouchableOpacity>
 );
